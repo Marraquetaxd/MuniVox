@@ -1,0 +1,21 @@
+# Dependencias y compilados
+node_modules/
+.next/
+out/
+build/
+coverage/
+*.zip
+
+# Variables de entorno (solo se versiona .env.example)
+.env
+.env.*
+!.env.example
+*.pem
+
+# Sistema y editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+~$*
+.claude/settings.local.json
