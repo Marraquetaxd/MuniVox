@@ -1,0 +1,102 @@
+erDiagram
+  Ciudadano ||--o{ Reporte : "crea"
+  Ciudadano ||--o{ SolicitudDatos : "solicita"
+  Categoria |o--o{ Reporte : "clasifica"
+  Departamento |o--o{ Reporte : "atiende"
+  Departamento |o--o{ Operador : "agrupa"
+  Operador |o--o{ Reporte : "asignado"
+  Reporte ||--o{ Evidencia : "tiene"
+  Reporte ||--o{ HistorialEstado : "registra"
+  Operador |o--o{ HistorialEstado : "realiza"
+  Operador |o--o{ SolicitudDatos : "atiende"
+  Operador |o--o{ Auditoria : "genera"
+  Operador ||--o{ SuscripcionPush : "recibe"
+  Ciudadano {
+    uuid id PK
+    text telefono UK
+    text nombre
+    boolean baneado
+    timestamp avisoPrivacidadEn
+    timestamp createdAt
+  }
+  Reporte {
+    uuid id PK
+    text codigoTicket UK
+    text tokenSeguimiento UK
+    uuid ciudadanoId FK
+    int categoriaId FK
+    int departamentoId FK
+    uuid operadorAsignadoId FK
+    float latitud
+    float longitud
+    text descripcionUsuario
+    text analisisIA
+    float certezaIA
+    enum prioridadIA
+    enum prioridadFinal
+    enum estado
+    timestamp createdAt
+  }
+  Categoria {
+    int id PK
+    text nombre UK
+  }
+  Departamento {
+    int id PK
+    text nombre UK
+    text telefonoContacto
+    text contactoInterno
+  }
+  Operador {
+    uuid id PK
+    text email UK
+    text nombre
+    enum rol
+    boolean enTurno
+    boolean gpsActivo
+    float latitud
+    float longitud
+    timestamp ultimaUbicacion
+    int departamentoId FK
+  }
+  Evidencia {
+    uuid id PK
+    text url
+    enum tipo
+    uuid reporteId FK
+  }
+  HistorialEstado {
+    uuid id PK
+    enum estadoNuevo
+    text comentario
+    uuid reporteId FK
+    uuid operadorId FK
+    timestamp createdAt
+  }
+  SolicitudDatos {
+    uuid id PK
+    text tipo
+    text estado
+    text canal
+    text detalle
+    text respuesta
+    uuid ciudadanoId FK
+    uuid operadorId FK
+    timestamp resueltaEn
+  }
+  Auditoria {
+    uuid id PK
+    text accion
+    text entidad
+    text entidadId
+    text detalle
+    uuid operadorId FK
+  }
+  SuscripcionPush {
+    uuid id PK
+    text endpoint UK
+    text p256dh
+    text auth
+    text dispositivo
+    uuid operadorId FK
+  }

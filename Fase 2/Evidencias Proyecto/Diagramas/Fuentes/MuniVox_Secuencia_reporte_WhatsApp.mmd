@@ -1,0 +1,48 @@
+sequenceDiagram
+  autonumber
+  actor V as Vecino
+  participant M as Meta WhatsApp
+  participant W as webhook-service
+  participant R as Redis (BullMQ / PubSub)
+  participant K as worker-service
+  participant G as Google Gemini
+  participant S3 as AWS S3
+  participant DB as PostgreSQL
+  participant SO as socket-service
+  participant C4 as Panel C4
+  V->>M: "Hay un microbasural en la esquina"
+  M->>W: POST /api/webhook (firma X-Hub-Signature-256)
+  W->>W: Valida la firma de Meta
+  W->>R: Encola el mensaje con jobId igual al id de Meta
+  W-->>M: 200 OK
+  R->>K: Entrega el trabajo
+  K->>K: Detector de intención: consulta, cancelación o reporte
+  K->>G: Relato + historial + reglas
+  G-->>K: intencion, categoría, departamento, prioridad, certeza
+  K->>DB: Crea Reporte en estado BOCETO
+  K->>M: Botones "Sí, enviar foto" / "No, continuar"
+  M->>V: Pregunta por la foto
+  V->>M: Foto del problema
+  M->>W: Mensaje con imagen
+  W->>R: Encola
+  R->>K: Entrega el trabajo
+  K->>G: Valida que la foto corresponda
+  K->>S3: Sube a evidencias/
+  K->>DB: Crea Evidencia
+  K->>M: Solicita ubicación
+  V->>M: Ubicación GPS
+  M->>W: Mensaje de ubicación
+  W->>R: Encola
+  R->>K: Entrega el trabajo
+  K->>K: Verifica el límite comunal de Buin con 150 m de tolerancia
+  alt Fuera de Buin
+    K->>M: Rechaza y pide otra ubicación
+  else Dentro de Buin
+    K->>DB: Reporte PENDIENTE con código MUN- y tokenSeguimiento
+    K->>M: "Reporte registrado" con código y enlace
+    M->>V: Confirmación
+    K->>R: Publica nuevo-ticket
+    R->>SO: Evento nuevo-ticket
+    SO->>C4: ticket-actualizado (WebSocket)
+    C4->>C4: Sonido y aviso, luego pide los datos a la API
+  end

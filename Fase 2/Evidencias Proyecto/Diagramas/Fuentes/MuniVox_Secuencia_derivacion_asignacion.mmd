@@ -1,0 +1,33 @@
+sequenceDiagram
+  autonumber
+  actor OP as Operador C4
+  participant D as Dashboard (Next.js)
+  participant CG as Cognito
+  participant API as API Gateway + Lambda
+  participant DB as PostgreSQL
+  participant M as Meta WhatsApp
+  actor V as Vecino
+  participant SO as socket-service
+  actor J as Jefatura
+  participant P as Web Push
+  actor F as Funcionario
+  OP->>D: Abre el expediente y elige departamento
+  D->>CG: idToken vigente (renovado si faltan 5 min)
+  D->>API: PUT /tickets/{id} {departamentoId}
+  API->>API: Verifica JWT y rol ADMINISTRADOR
+  API->>DB: PENDIENTE a EN_REVISION + HistorialEstado
+  API->>DB: Auditoria
+  API->>M: Aviso "tu reporte fue derivado"
+  M->>V: WhatsApp con enlace de seguimiento
+  API-->>D: 200 Reporte actualizado
+  D->>SO: emit ticket-cambio
+  SO->>J: ticket-cambio (panel del departamento)
+  J->>D: Elige funcionario sugerido (turno, cercanía, carga)
+  D->>API: PUT /tickets/{id} {operadorAsignadoId}
+  API->>API: Valida que sea TERRENO del mismo departamento
+  API->>DB: Asigna operador + HistorialEstado
+  API->>M: Aviso "tu caso fue asignado"
+  M->>V: WhatsApp
+  API->>P: Notificación "Nueva tarea" (urgente si es crítica o alta)
+  P->>F: Notificación en el celular
+  API-->>D: 200

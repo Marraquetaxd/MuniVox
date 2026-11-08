@@ -1,0 +1,220 @@
+// 1. CONFIGURACIÓN DEL CLIENTE
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 2. ENUMS (Valores fijos)
+enum EstadoReporte {
+  BOCETO          // Borrador: falta la ubicación (se elimina si se abandona)
+  PENDIENTE       // Recién ingresado por IA
+  EN_REVISION     // Operador lo está leyendo
+  DESPACHADO      // Móvil va en camino
+  RESUELTO        // Problema solucionado
+  DESCARTADO      // Falsa alarma o broma
+}
+
+enum Prioridad {
+  CRITICA         // Derivación automática al 133/132
+  ALTA            // Requiere acción inmediata
+  MEDIA           // Acción en el día
+  BAJA            // Acción programada
+}
+
+enum RolUsuario {
+  ADMINISTRADOR   // Acceso total (C4)
+  OPERADOR        // Jefaturas de Departamento
+  TERRENO         // NUEVO: Funcionario móvil / Patrullero
+}
+
+enum TipoEvidencia {
+  IMAGEN
+  AUDIO
+  VIDEO
+}
+
+// 3. MODELOS (TABLAS)
+
+model Ciudadano {
+  id        String    @id @default(uuid())
+  telefono  String    @unique
+  nombre    String?
+  baneado   Boolean   @default(false)
+  reportes  Reporte[]
+
+  // Fecha en que se le envió el aviso de privacidad (deber de información, Ley 21.719)
+  avisoPrivacidadEn DateTime?
+  solicitudes       SolicitudDatos[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Departamento {
+  id               Int        @id @default(autoincrement())
+  nombre           String     @unique
+  telefonoContacto String?    
+  contactoInterno  String?    
+  
+  reportes         Reporte[]
+  operadores       Operador[]
+}
+
+model Operador {
+  id               String            @id @default(uuid())
+  email            String            @unique
+  nombre           String
+  rol              RolUsuario        @default(OPERADOR)
+
+  // Datos para el sistema de despacho a terreno
+  // Disponibilidad: lo marca el funcionario al iniciar y terminar su turno (independiente del GPS)
+  enTurno          Boolean           @default(false)
+  gpsActivo        Boolean           @default(false)
+  latitud          Float?
+  longitud         Float?
+  ultimaUbicacion  DateTime?
+
+  departamentoId   Int?
+  departamento     Departamento?     @relation(fields: [departamentoId], references: [id])
+
+  historial        HistorialEstado[]
+  ticketsAsignados Reporte[]         @relation("OperadorAsignado")
+  solicitudesAtendidas SolicitudDatos[]
+  suscripcionesPush    SuscripcionPush[]
+  auditorias       Auditoria[]
+
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+}
+
+model Categoria {
+  id       Int       @id @default(autoincrement())
+  nombre   String    @unique
+  reportes Reporte[]
+}
+
+model Reporte {
+  id                 String          @id @default(uuid())
+  codigoTicket       String          @unique
+  // Clave aleatoria para el enlace público de seguimiento (no revela datos personales)
+  tokenSeguimiento   String?         @unique
+
+  ciudadanoId        String
+  ciudadano          Ciudadano       @relation(fields: [ciudadanoId], references: [id])
+
+  categoriaId        Int?
+  categoria          Categoria?      @relation(fields: [categoriaId], references: [id])
+
+  departamentoId     Int?
+  departamento       Departamento?   @relation(fields: [departamentoId], references: [id])
+
+  operadorAsignadoId String?         
+  operadorAsignado   Operador?       @relation("OperadorAsignado", fields: [operadorAsignadoId], references: [id])
+
+  latitud            Float?
+  longitud           Float?
+  direccion          String?
+
+  descripcionUsuario String?         @db.Text
+
+  analisisIA         String?         @db.Text
+  certezaIA          Float?
+  prioridadIA        Prioridad?
+
+  estado             EstadoReporte   @default(PENDIENTE)
+  prioridadFinal     Prioridad?
+
+  evidencias         Evidencia[]
+  historial          HistorialEstado[]
+
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+
+  @@index([estado, createdAt])
+  @@index([latitud, longitud])
+}
+
+model Evidencia {
+  id        String        @id @default(uuid())
+  url       String
+  tipo      TipoEvidencia
+
+  reporteId String
+  reporte   Reporte       @relation(fields: [reporteId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime      @default(now())
+}
+
+model HistorialEstado {
+  id          String        @id @default(uuid())
+  estadoNuevo EstadoReporte
+  comentario  String?       @db.Text
+
+  reporteId   String
+  reporte     Reporte       @relation(fields: [reporteId], references: [id], onDelete: Cascade)
+
+  operadorId  String?
+  operador    Operador?     @relation(fields: [operadorId], references: [id])
+
+  createdAt   DateTime      @default(now())
+}
+
+// 4. PROTECCIÓN DE DATOS PERSONALES
+
+// Solicitudes de los vecinos sobre sus datos (acceso, rectificación, supresión, oposición)
+// tipo: ACCESO | RECTIFICACION | SUPRESION | OPOSICION
+// estado: PENDIENTE | RESUELTA | RECHAZADA
+model SolicitudDatos {
+  id          String     @id @default(uuid())
+  tipo        String
+  estado      String     @default("PENDIENTE")
+  canal       String     @default("WHATSAPP")
+  detalle     String?    @db.Text
+  respuesta   String?    @db.Text
+
+  ciudadanoId String
+  ciudadano   Ciudadano  @relation(fields: [ciudadanoId], references: [id], onDelete: Cascade)
+
+  operadorId  String?
+  operador    Operador?  @relation(fields: [operadorId], references: [id], onDelete: SetNull)
+
+  createdAt   DateTime   @default(now())
+  resueltaEn  DateTime?
+
+  @@index([estado, createdAt])
+}
+
+// Registro de acciones sensibles del personal (responsabilidad proactiva)
+model Auditoria {
+  id         String    @id @default(uuid())
+  accion     String
+  entidad    String
+  entidadId  String?
+  detalle    String?   @db.Text
+
+  operadorId String?
+  operador   Operador? @relation(fields: [operadorId], references: [id], onDelete: SetNull)
+
+  createdAt  DateTime  @default(now())
+
+  @@index([createdAt])
+}
+
+// Celulares de funcionarios que activaron las notificaciones (Web Push)
+model SuscripcionPush {
+  id         String   @id @default(uuid())
+  endpoint   String   @unique @db.Text
+  p256dh     String
+  auth       String
+  dispositivo String?
+
+  operadorId String
+  operador   Operador @relation(fields: [operadorId], references: [id], onDelete: Cascade)
+
+  createdAt  DateTime @default(now())
+}

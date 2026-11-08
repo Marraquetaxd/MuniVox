@@ -1,0 +1,19 @@
+stateDiagram-v2
+  direction LR
+  [*] --> BOCETO : Vecino describe el problema (worker)
+  BOCETO --> [*] : 30 min sin ubicación o "cancelar" (se elimina)
+  BOCETO --> PENDIENTE : Ubicación dentro de Buin (código MUN-)
+  PENDIENTE --> EN_REVISION : C4 deriva a un departamento
+  EN_REVISION --> EN_REVISION : Jefatura asigna o el funcionario rechaza
+  EN_REVISION --> DESPACHADO : Funcionario toma el caso
+  DESPACHADO --> DESPACHADO : Voy en camino (solo historial)
+  DESPACHADO --> RESUELTO : Informe de cierre y foto opcional
+  PENDIENTE --> DESCARTADO : Descarte con motivo o duplicado
+  EN_REVISION --> DESCARTADO : Descarte con motivo
+  PENDIENTE --> DESCARTADO : Vecino cancela
+  RESUELTO --> EN_REVISION : C4 reabre
+  DESCARTADO --> EN_REVISION : C4 reabre
+  RESUELTO --> [*]
+  DESCARTADO --> [*]
+  note right of BOCETO : Borrador. No aparece en los paneles. La IA pregunta por la foto una vez.
+  note right of RESUELTO : Aviso con informe, foto y evaluación del vecino.

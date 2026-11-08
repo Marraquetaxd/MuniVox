@@ -1,0 +1,121 @@
+classDiagram
+direction LR
+class Ciudadano {
+  +String id
+  +String telefono
+  +String nombre
+  +Boolean baneado
+  +DateTime avisoPrivacidadEn
+  +reportar()
+  +consultarEstado()
+  +solicitarDatos()
+}
+class Reporte {
+  +String id
+  +String codigoTicket
+  +String tokenSeguimiento
+  +Float latitud
+  +Float longitud
+  +String descripcionUsuario
+  +String analisisIA
+  +Float certezaIA
+  +Prioridad prioridadIA
+  +Prioridad prioridadFinal
+  +EstadoReporte estado
+  +confirmar()
+  +derivar(departamento)
+  +asignar(operador)
+  +tomar()
+  +resolver(informe, foto)
+  +descartar(motivo)
+  +reabrir()
+}
+class Categoria {
+  +Int id
+  +String nombre
+}
+class Departamento {
+  +Int id
+  +String nombre
+  +String telefonoContacto
+}
+class Operador {
+  +String id
+  +String email
+  +String nombre
+  +RolUsuario rol
+  +Boolean enTurno
+  +Boolean gpsActivo
+  +Float latitud
+  +Float longitud
+  +iniciarTurno()
+  +compartirUbicacion()
+}
+class Evidencia {
+  +String id
+  +String url
+  +TipoEvidencia tipo
+}
+class HistorialEstado {
+  +String id
+  +EstadoReporte estadoNuevo
+  +String comentario
+  +DateTime createdAt
+}
+class SolicitudDatos {
+  +String id
+  +String tipo
+  +String estado
+  +String canal
+  +String respuesta
+  +resolver()
+}
+class Auditoria {
+  +String id
+  +String accion
+  +String entidad
+  +String detalle
+}
+class SuscripcionPush {
+  +String id
+  +String endpoint
+  +String p256dh
+  +String auth
+}
+class EstadoReporte {
+  <<enumeration>>
+  BOCETO
+  PENDIENTE
+  EN_REVISION
+  DESPACHADO
+  RESUELTO
+  DESCARTADO
+}
+class Prioridad {
+  <<enumeration>>
+  CRITICA
+  ALTA
+  MEDIA
+  BAJA
+}
+class RolUsuario {
+  <<enumeration>>
+  ADMINISTRADOR
+  OPERADOR
+  TERRENO
+}
+Ciudadano "1" --> "0..*" Reporte : crea
+Ciudadano "1" --> "0..*" SolicitudDatos : solicita
+Reporte "0..*" --> "0..1" Categoria : clasificado en
+Reporte "0..*" --> "0..1" Departamento : derivado a
+Reporte "0..*" --> "0..1" Operador : asignado a
+Reporte "1" *-- "0..*" Evidencia : contiene
+Reporte "1" *-- "1..*" HistorialEstado : registra
+Departamento "1" --> "0..*" Operador : agrupa
+Operador "0..1" --> "0..*" HistorialEstado : realiza
+Operador "1" *-- "0..*" SuscripcionPush : recibe
+Operador "0..1" --> "0..*" Auditoria : genera
+Operador "0..1" --> "0..*" SolicitudDatos : atiende
+Reporte ..> EstadoReporte
+Reporte ..> Prioridad
+Operador ..> RolUsuario

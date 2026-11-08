@@ -1,0 +1,40 @@
+sequenceDiagram
+  autonumber
+  actor F as Funcionario
+  participant A as App Terreno (PWA)
+  participant Q as Cola local (IndexedDB)
+  participant API as API Gateway + Lambda
+  participant DB as PostgreSQL
+  participant S3 as AWS S3
+  participant M as Meta WhatsApp
+  actor V as Vecino
+  participant SO as socket-service
+  participant C4 as Panel C4
+  F->>A: Toca "Tomar caso"
+  A->>API: PUT /tickets/{id} {nuevoEstado: DESPACHADO}
+  API->>DB: EN_REVISION a DESPACHADO + historial
+  API->>M: "Un funcionario tomó tu caso"
+  M->>V: WhatsApp (sin fecha)
+  F->>A: Toca "Voy en camino" y abre Waze o Google Maps
+  A->>API: PUT /tickets/{id} {enCamino: true}
+  API->>DB: Historial "En camino al lugar"
+  API->>M: "Un funcionario va en camino" (máx. 1 vez cada 12 h)
+  M->>V: WhatsApp
+  F->>A: Escribe informe de cierre y toma foto
+  A->>A: Reduce la foto a 1280 px
+  alt Sin señal
+    A->>Q: Guarda la acción en la cola
+    Q-->>A: Pendiente de envío
+    Note over A,Q: Al volver la conexión se envía sola
+    Q->>API: PUT /tickets/{id} {nuevoEstado: RESUELTO, comentario, fotoCierre}
+  else Con señal
+    A->>API: PUT /tickets/{id} {nuevoEstado: RESUELTO, comentario, fotoCierre}
+  end
+  API->>S3: Guarda evidencias/cierre/{id}.jpg
+  API->>DB: RESUELTO + Evidencia + historial
+  API->>M: Informe, foto y botones de evaluación (5, 3, 1)
+  M->>V: WhatsApp de cierre
+  V->>M: Evalúa la atención
+  API-->>A: 200
+  A->>SO: emit ticket-cambio
+  SO->>C4: ticket-cambio
