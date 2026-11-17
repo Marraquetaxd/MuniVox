@@ -1,0 +1,37 @@
+import type { Metadata, Viewport } from "next";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import "./globals.css";
+import { Providers } from "./Providers";
+
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
+export const metadata: Metadata = {
+  title: "MuniVox | Central C4 Buin",
+  description: "Gestión de reportes ciudadanos de la Municipalidad de Buin",
+  // Acceso directo en la pantalla de inicio del celular (se abre como app)
+  appleWebApp: { capable: true, title: "MuniVox", statusBarStyle: "black" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0A1222",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="es" className={`${plexSans.variable} ${plexMono.variable}`}>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  );
+}
