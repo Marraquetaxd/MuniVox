@@ -1,0 +1,44 @@
+# MuniVox: entorno local con Docker (Redis, PostgreSQL y los tres microservicios).
+# Uso: copiar cada .env.example a .env, completar los valores y ejecutar:
+#   docker compose up --build
+# En producción los servicios corren en Azure Container Apps y los datos en AWS (RDS, ElastiCache, S3).
+services:
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: munivox
+      POSTGRES_PASSWORD: munivox_local
+      POSTGRES_DB: postgres
+    ports: ["5432:5432"]
+    volumes: ["datos-postgres:/var/lib/postgresql/data"]
+
+  webhook-service:
+    build: ./webhook-service
+    env_file: ./webhook-service/.env
+    environment:
+      REDIS_HOST: redis
+    ports: ["8080:8080"]
+    depends_on: [redis]
+
+  worker-service:
+    build: ./worker-service
+    env_file: ./worker-service/.env
+    environment:
+      REDIS_HOST: redis
+      DATABASE_URL: postgresql://munivox:munivox_local@postgres:5432/postgres?schema=public
+    depends_on: [redis, postgres]
+
+  socket-service:
+    build: ./socket-service
+    env_file: ./socket-service/.env
+    environment:
+      REDIS_HOST: redis
+    ports: ["3001:3001"]
+    depends_on: [redis]
+
+volumes:
+  datos-postgres:

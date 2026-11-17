@@ -1,0 +1,19 @@
+{
+  "name": "munivox-simulador",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simulador de funcionarios en terreno para demostraciones de MuniVox",
+  "main": "simulador.js",
+  "scripts": {
+    "alta": "node simulador.js alta",
+    "iniciar": "node simulador.js iniciar",
+    "estado": "node simulador.js estado",
+    "limpiar": "node simulador.js limpiar",
+    "rutas": "node simulador.js rutas"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ioredis": "^5.4.1",
+    "pg": "^8.13.1"
+  }
+}
