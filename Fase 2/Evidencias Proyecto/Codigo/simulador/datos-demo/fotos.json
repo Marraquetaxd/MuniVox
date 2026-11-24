@@ -1,0 +1,416 @@
+{
+ "antes": {
+  "bache": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_01.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_02.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_03.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_04.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_05.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_06.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_07.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_08.jpg"
+  ],
+  "basura": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_01.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_02.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_03.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_04.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_05.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_06.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_07.jpg"
+  ],
+  "vehiculo": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_01.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_02.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_03.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_04.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_05.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_06.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_07.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_08.jpg"
+  ],
+  "senaletica": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/senaletica/senaletica_01.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/senaletica/senaletica_02.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/senaletica/senaletica_03.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/senaletica/senaletica_04.jpg"
+  ],
+  "alumbrado": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/alumbrado/alumbrado_01.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/alumbrado/alumbrado_02.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/alumbrado/alumbrado_03.jpg"
+  ],
+  "areas_verdes": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/areas_verdes/areas_verdes_01.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/areas_verdes/areas_verdes_02.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/areas_verdes/areas_verdes_03.jpg"
+  ],
+  "animales": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/animales/animales_01.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/animales/animales_02.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/animales/animales_03.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/animales/animales_04.jpg"
+  ]
+ },
+ "cierre": {
+  "bache": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/bache/cierre_bache_01.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/bache/cierre_bache_02.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/bache/cierre_bache_03.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/bache/cierre_bache_04.jpg"
+  ],
+  "basura": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/basura/cierre_basura_01.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/basura/cierre_basura_02.jpg"
+  ],
+  "alumbrado": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/alumbrado/cierre_alumbrado_01.jpg"
+  ],
+  "areas_verdes": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/areas_verdes/cierre_areas_verdes_01.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/areas_verdes/cierre_areas_verdes_02.jpg"
+  ],
+  "vehiculo": [
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/vehiculo/cierre_vehiculo_01.jpg",
+   "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/vehiculo/cierre_vehiculo_02.jpg"
+  ]
+ },
+ "creditos": [
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_01.jpg",
+   "titulo": "File:A Pothole Is Decorated - Mid-City New Orleans.jpg",
+   "autor": "Bart Everson",
+   "licencia": "CC BY 2.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:A_Pothole_Is_Decorated_-_Mid-City_New_Orleans.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_02.jpg",
+   "titulo": "File:A photo of a pothole 2021-07-11.jpg",
+   "autor": "Thomas Booker (CoderThomasB)",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:A_photo_of_a_pothole_2021-07-11.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_03.jpg",
+   "titulo": "File:A pothole in Dilova Street in Kyiv.jpg",
+   "autor": "Роман Рябенко",
+   "licencia": "CC0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:A_pothole_in_Dilova_Street_in_Kyiv.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_04.jpg",
+   "titulo": "File:Bielsko-Biała, ulica Widok - uszkodzona dziurawa droga 01.jpg",
+   "autor": "Kamil Czaiński",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Bielsko-Bia%C5%82a,_ulica_Widok_-_uszkodzona_dziurawa_droga_01.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_05.jpg",
+   "titulo": "File:Nasty pothole in the middle of Virginia Avenue.jpg",
+   "autor": "Ser Amantio di Nicolao",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Nasty_pothole_in_the_middle_of_Virginia_Avenue.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_06.jpg",
+   "titulo": "File:Pothole in Potomac after rain.jpg",
+   "autor": "Ser Amantio di Nicolao",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Pothole_in_Potomac_after_rain.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_07.jpg",
+   "titulo": "File:Pothole in Villeray, Montréal.jpg",
+   "autor": "Miguel Tremblay",
+   "licencia": "Public domain",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Pothole_in_Villeray,_Montr%C3%A9al.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/bache/bache_08.jpg",
+   "titulo": "File:Pothole in an asphalt pavement.jpg",
+   "autor": "Frankie Fouganthin",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Pothole_in_an_asphalt_pavement.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_01.jpg",
+   "titulo": "File:007 Beach pollution - household waste and construction rubble dumped illegally in Baracoa, Cuba.jpg",
+   "autor": "Marek Ślusarczyk (Tupungato) Photo portfolio",
+   "licencia": "CC BY 3.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:007_Beach_pollution_-_household_waste_and_construction_rubble_dumped_illegally_in_Baracoa,_Cuba.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_02.jpg",
+   "titulo": "File:Décharge sauvage.jpg",
+   "autor": "Moinats",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:D%C3%A9charge_sauvage.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_03.jpg",
+   "titulo": "File:Dépôt sauvage déchets verts.jpg",
+   "autor": "Moinats",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:D%C3%A9p%C3%B4t_sauvage_d%C3%A9chets_verts.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_04.jpg",
+   "titulo": "File:Fly-tipping construction waste in Parco Alto Milanese - Busto Arsizio, Lombardy, Italy.jpg",
+   "autor": "Mænsard vokser",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Fly-tipping_construction_waste_in_Parco_Alto_Milanese_-_Busto_Arsizio,_Lombardy,_Italy.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_05.jpg",
+   "titulo": "File:Fly tipping near High Beech, Essex.jpg",
+   "autor": "The wub",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Fly_tipping_near_High_Beech,_Essex.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_06.jpg",
+   "titulo": "File:Fly tipping white goods in Parco Alto Milanese - Legnano (MI), Lombardy, Italy - 2021-09-18.jpg",
+   "autor": "Mænsard vokser",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Fly_tipping_white_goods_in_Parco_Alto_Milanese_-_Legnano_(MI),_Lombardy,_Italy_-_2021-09-18.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/basura/basura_07.jpg",
+   "titulo": "File:Illegal dumping near Swamp Creek in North Lynnwood.jpg",
+   "autor": "PinchyCC",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Illegal_dumping_near_Swamp_Creek_in_North_Lynnwood.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_01.jpg",
+   "titulo": "File:Abandoned car, Tapp Street E2, 1984 - geograph.org.uk - 8063861.jpg",
+   "autor": "Christopher Hilton",
+   "licencia": "CC BY-SA 2.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Abandoned_car,_Tapp_Street_E2,_1984_-_geograph.org.uk_-_8063861.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_02.jpg",
+   "titulo": "File:Abandoned car, Urgezes.jpg",
+   "autor": "V.B.Speranza",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Abandoned_car,_Urgezes.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_03.jpg",
+   "titulo": "File:Abandoned car West 15th Street.jpg",
+   "autor": "Beyond My Ken",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Abandoned_car_West_15th_Street.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_04.jpg",
+   "titulo": "File:Abandoned car at the Salt Marsh (10835).jpg",
+   "autor": "Rhododendrites",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Abandoned_car_at_the_Salt_Marsh_(10835).jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_05.jpg",
+   "titulo": "File:Abandoned car in Tambov - 001.jpg",
+   "autor": "Alexander Novikov",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Abandoned_car_in_Tambov_-_001.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_06.jpg",
+   "titulo": "File:Black car with flat tire parked on gravel near abandoned area.jpg",
+   "autor": "Shixart1985",
+   "licencia": "CC BY 2.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Black_car_with_flat_tire_parked_on_gravel_near_abandoned_area.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_07.jpg",
+   "titulo": "File:DZ6 2590 An old blue pickup slowly being reclaimed by overgrown plants sits abandoned along a quiet dimly lit street at night.jpg",
+   "autor": "PattayaPatrol",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:DZ6_2590_An_old_blue_pickup_slowly_being_reclaimed_by_overgrown_plants_sits_abandoned_along_a_quiet_dimly_lit_street_at_night.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/vehiculo/vehiculo_08.jpg",
+   "titulo": "File:DZ6 2591 An abandoned white pickup bed overgrown with plants sits beside a quiet lamp-lit street at night.jpg",
+   "autor": "PattayaPatrol",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:DZ6_2591_An_abandoned_white_pickup_bed_overgrown_with_plants_sits_beside_a_quiet_lamp-lit_street_at_night.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/senaletica/senaletica_01.jpg",
+   "titulo": "File:FEMA - 38951 - Photograph by Leif Skoogfors taken on 09-28-2008 in Texas.jpg",
+   "autor": "Leif Skoogfors",
+   "licencia": "Public domain",
+   "fuente": "https://commons.wikimedia.org/wiki/File:FEMA_-_38951_-_Photograph_by_Leif_Skoogfors_taken_on_09-28-2008_in_Texas.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/senaletica/senaletica_02.jpg",
+   "titulo": "File:Lwr94JanBentStopsign.jpg",
+   "autor": "No machine-readable author provided. Infrogmation assumed (based on copyright claims).",
+   "licencia": "CC BY 3.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Lwr94JanBentStopsign.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/senaletica/senaletica_03.jpg",
+   "titulo": "File:Don't Stop Daddy stop-sign graffiti, New Orleans, Lousiana, USA.jpg",
+   "autor": "Cory Doctorow",
+   "licencia": "CC BY-SA 2.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Don%27t_Stop_Daddy_stop-sign_graffiti,_New_Orleans,_Lousiana,_USA.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/senaletica/senaletica_04.jpg",
+   "titulo": "File:Isaac - Philip and Dryades - Downed stop sign, New Orleans.jpg",
+   "autor": "Derek Bridges",
+   "licencia": "CC BY 2.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Isaac_-_Philip_and_Dryades_-_Downed_stop_sign,_New_Orleans.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/alumbrado/alumbrado_01.jpg",
+   "titulo": "File:A Light for Every Broken Heart (50892925856).jpg",
+   "autor": "Eden, Janine and Jim from New York City",
+   "licencia": "CC BY 2.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:A_Light_for_Every_Broken_Heart_(50892925856).jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/alumbrado/alumbrado_02.jpg",
+   "titulo": "File:Broken Street Light Stevenage (The White Way Lamppost 26) - geograph.org.uk - 8268947.jpg",
+   "autor": "Andy",
+   "licencia": "CC BY-SA 2.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Broken_Street_Light_Stevenage_(The_White_Way_Lamppost_26)_-_geograph.org.uk_-_8268947.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/alumbrado/alumbrado_03.jpg",
+   "titulo": "File:Damaged public street light, Feijenoord, Rotterdam (2021) 01.jpg",
+   "autor": "Donald Trung Quoc Don (Chữ Hán: 徵國單) - Wikimedia Commons - © CC BY-SA 4.0 International.(Want to use this image?)Original publication 📤: --Donald Trung 『徵國單』 (No Fake News 💬) (WikiProject Numismatics 💴) (Articles 📚) 22:27, 12 November 2021 (UTC)",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Damaged_public_street_light,_Feijenoord,_Rotterdam_(2021)_01.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/areas_verdes/areas_verdes_01.jpg",
+   "titulo": "File:Fallen tree, 16th Street NW.jpg",
+   "autor": "Nvss132",
+   "licencia": "CC0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Fallen_tree,_16th_Street_NW.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/areas_verdes/areas_verdes_02.jpg",
+   "titulo": "File:Judy Woods fallen tree - geograph.org.uk - 7750650.jpg",
+   "autor": "yorkshirelad",
+   "licencia": "CC BY-SA 2.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Judy_Woods_fallen_tree_-_geograph.org.uk_-_7750650.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/areas_verdes/areas_verdes_03.jpg",
+   "titulo": "File:2025-06-19 18 30 58 A damaged River Birch and stop sign after a severe thunderstorm along Delaware Avenue at Mountain View Road in the Mountainview section of Ewing Township, Mercer County, New Jersey.jpg",
+   "autor": "Famartin",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:2025-06-19_18_30_58_A_damaged_River_Birch_and_stop_sign_after_a_severe_thunderstorm_along_Delaware_Avenue_at_Mountain_View_Road_in_the_Mountainview_section_of_Ewing_Township,_Mercer_County,_New_Jersey.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/animales/animales_01.jpg",
+   "titulo": "File:Mira street Donetsk (stray dogs).JPG",
+   "autor": "MOs810",
+   "licencia": "CC BY-SA 3.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Mira_street_Donetsk_(stray_dogs).JPG"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/animales/animales_02.jpg",
+   "titulo": "File:Stray Dogs, Luxor Temple, Luxor, LG, EGY (48009671431).jpg",
+   "autor": "Warren LeMay from Chicago, IL, United States",
+   "licencia": "CC0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Stray_Dogs,_Luxor_Temple,_Luxor,_LG,_EGY_(48009671431).jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/animales/animales_03.jpg",
+   "titulo": "File:Stray Dogs Ancient Quarry, Aswan, AG, EGY (48027139308).jpg",
+   "autor": "Warren LeMay from Cullowhee, NC, United States",
+   "licencia": "CC0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Stray_Dogs_Ancient_Quarry,_Aswan,_AG,_EGY_(48027139308).jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/demo/animales/animales_04.jpg",
+   "titulo": "File:Stray dog problem in Istanbul, Turkey 23112025.jpg",
+   "autor": "Kayra",
+   "licencia": "CC BY 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Stray_dog_problem_in_Istanbul,_Turkey_23112025.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/bache/cierre_bache_01.jpg",
+   "titulo": "File:2022-12-13 12 03 34 Patched asphalt from a recently repaired water main break along Lochatong Road at its eastern intersection with Forest Lane in the Mountainview section of Ewing Township, Mercer County, New Jersey.jpg",
+   "autor": "Famartin",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:2022-12-13_12_03_34_Patched_asphalt_from_a_recently_repaired_water_main_break_along_Lochatong_Road_at_its_eastern_intersection_with_Forest_Lane_in_the_Mountainview_section_of_Ewing_Township,_Mercer_County,_New_Jersey.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/bache/cierre_bache_02.jpg",
+   "titulo": "File:MassDOT Pothole Repairs on I-93, Andover Methuen, March 5, 2010 (4408556649).jpg",
+   "autor": "MassDOT",
+   "licencia": "Public domain",
+   "fuente": "https://commons.wikimedia.org/wiki/File:MassDOT_Pothole_Repairs_on_I-93,_Andover_Methuen,_March_5,_2010_(4408556649).jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/bache/cierre_bache_03.jpg",
+   "titulo": "File:Pot hole repair vehicle on Common Lane - geograph.org.uk - 6679290.jpg",
+   "autor": "Ian S",
+   "licencia": "CC BY-SA 2.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Pot_hole_repair_vehicle_on_Common_Lane_-_geograph.org.uk_-_6679290.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/bache/cierre_bache_04.jpg",
+   "titulo": "File:Pot hole repair vehicle on Common Lane - geograph.org.uk - 6679292.jpg",
+   "autor": "Ian S",
+   "licencia": "CC BY-SA 2.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Pot_hole_repair_vehicle_on_Common_Lane_-_geograph.org.uk_-_6679292.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/basura/cierre_basura_01.jpg",
+   "titulo": "File:City workers.jpg",
+   "autor": "Горбунова М.С.",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:City_workers.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/basura/cierre_basura_02.jpg",
+   "titulo": "File:HK 上環 Sheung Wan 差館上街 Upper Station Street cleaner worker Sept 2018 SSG.jpg",
+   "autor": "Hung Shek Nam MM",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:HK_%E4%B8%8A%E7%92%B0_Sheung_Wan_%E5%B7%AE%E9%A4%A8%E4%B8%8A%E8%A1%97_Upper_Station_Street_cleaner_worker_Sept_2018_SSG.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/alumbrado/cierre_alumbrado_01.jpg",
+   "titulo": "File:DFC 2083 A lone motorcyclist rides through a dimly lit urban parking area at night with multi-level garages and small vendors glowing under streetlights.jpg",
+   "autor": "PattayaPatrol",
+   "licencia": "CC BY-SA 4.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:DFC_2083_A_lone_motorcyclist_rides_through_a_dimly_lit_urban_parking_area_at_night_with_multi-level_garages_and_small_vendors_glowing_under_streetlights.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/areas_verdes/cierre_areas_verdes_01.jpg",
+   "titulo": "File:9852Baliuag DRRM workers cutting acacia tree trunks with Stihl chainsaws 01.jpg",
+   "autor": "Judgefloro",
+   "licencia": "CC0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:9852Baliuag_DRRM_workers_cutting_acacia_tree_trunks_with_Stihl_chainsaws_01.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/areas_verdes/cierre_areas_verdes_02.jpg",
+   "titulo": "File:9852Baliuag DRRM workers cutting acacia tree trunks with Stihl chainsaws 15.jpg",
+   "autor": "Judgefloro",
+   "licencia": "CC0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:9852Baliuag_DRRM_workers_cutting_acacia_tree_trunks_with_Stihl_chainsaws_15.jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/vehiculo/cierre_vehiculo_01.jpg",
+   "titulo": "File:Bergingstruck met auto (tow truck with car).jpg",
+   "autor": "",
+   "licencia": "CC BY-SA 3.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Bergingstruck_met_auto_(tow_truck_with_car).jpg"
+  },
+  {
+   "url": "https://munivox-evidencias-mvp.s3.us-east-2.amazonaws.com/evidencias/cierre/demo/vehiculo/cierre_vehiculo_02.jpg",
+   "titulo": "File:International Tow Truck & 64 Imperial Crown Coupe (6027766978).jpg",
+   "autor": "Greg Gjerdingen from Willmar, USA",
+   "licencia": "CC BY 2.0",
+   "fuente": "https://commons.wikimedia.org/wiki/File:International_Tow_Truck_%26_64_Imperial_Crown_Coupe_(6027766978).jpg"
+  }
+ ]
+}

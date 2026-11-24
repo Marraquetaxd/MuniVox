@@ -72,7 +72,9 @@ export default function ConsolaDepartamento() {
         api(`/operadores?departamentoId=${deptoId}&rol=TERRENO`),
       ]);
       if (rt.ok) {
-        const data: Ticket[] = await rt.json();
+        // Un PENDIENTE solo trae el departamento que sugirió la IA: llega al departamento cuando el C4 lo deriva.
+        // (La API ya no se los entrega a la jefatura; aquí se filtran también para el C4 en modo supervisión.)
+        const data: Ticket[] = (await rt.json()).filter((t: Ticket) => t.estado !== "PENDIENTE");
         setTickets(prev => (JSON.stringify(prev) === JSON.stringify(data) ? prev : data));
       }
       if (rf.ok) {
@@ -159,7 +161,7 @@ export default function ConsolaDepartamento() {
     const g: Record<Pestana, Ticket[]> = { POR_ASIGNAR: [], POR_CONFIRMAR: [], EN_TERRENO: [], CERRADOS: [] };
     tickets.forEach(t => {
       if (t.estado === "DESPACHADO") g.EN_TERRENO.push(t);
-      else if (["PENDIENTE", "EN_REVISION"].includes(t.estado)) (t.operadorAsignadoId ? g.POR_CONFIRMAR : g.POR_ASIGNAR).push(t);
+      else if (t.estado === "EN_REVISION") (t.operadorAsignadoId ? g.POR_CONFIRMAR : g.POR_ASIGNAR).push(t);
       else if (ahora - new Date(t.updatedAt || t.createdAt).getTime() < 7 * 86400000) g.CERRADOS.push(t);
     });
     const urgencia = (a: Ticket, b: Ticket) => PRIORIDADES[prioridadDe(b)].peso - PRIORIDADES[prioridadDe(a)].peso || slaDe(a, ahora).restanteMs - slaDe(b, ahora).restanteMs;
@@ -485,6 +487,7 @@ export default function ConsolaDepartamento() {
               enfoque={detalle && detalle.latitud != null && !lineaDespacho ? [detalle.latitud, detalle.longitud!] : null}
               funcionarios={mostrarPersonal ? funcionarios.filter(f => f.gpsActivo) : []}
               lineaDespacho={lineaDespacho}
+              agrupar={pestana === "CERRADOS" && !detalle}
             />
             <div style={{ position: "absolute", right: 12, bottom: 40, zIndex: 5 }}>
               <button className={`btn btn-sm ${mostrarPersonal ? "btn-oscuro" : "btn-secundario"}`} onClick={() => setMostrarPersonal(!mostrarPersonal)}>

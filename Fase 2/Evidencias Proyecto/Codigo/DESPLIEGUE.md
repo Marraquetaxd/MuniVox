@@ -88,10 +88,10 @@ Sube el zip como siempre. Variable opcional nueva: `PANEL_URL` (por defecto, el 
 ## 5. worker-service
 ```powershell
 cd worker-service
-docker build -t munivoxacr2026.azurecr.io/worker-service:<vNN> .
-az acr login --name munivoxacr2026
-docker push munivoxacr2026.azurecr.io/worker-service:<vNN>
-az containerapp update --name <app-worker> --resource-group <grupo> --image munivoxacr2026.azurecr.io/worker-service:<vNN>
+docker build -t munivoxduocacr.azurecr.io/worker-service:<vNN> .
+docker login munivoxduocacr.azurecr.io -u munivoxduocacr   (contraseña: portal > registro > Claves de acceso)
+docker push munivoxduocacr.azurecr.io/worker-service:<vNN>
+Portal: Container App worker-service > Contenedores > Editar e implementar > etiqueta de imagen <vNN> > Crear   (la cuenta de Duoc no permite az login)
 ```
 Variables nuevas (opcionales):
 - `PANEL_URL`: dominio público del dashboard (por defecto, el de Amplify). Se usa en los enlaces de seguimiento y de privacidad.

@@ -57,3 +57,19 @@ Al detener con Ctrl+C, los funcionarios simulados terminan el turno y se borran 
 6. Terminar con Ctrl+C y, si no se volverá a usar, `node simulador.js limpiar`.
 
 Los funcionarios simulados no aceptan tareas: no asignarles el reporte de la demo.
+
+## Datos de demostración (`demo.js`)
+
+Genera ~6 meses de uso ficticio: reportes en las 19 unidades vecinales sobre calles reales,
+fotos libres de Wikimedia Commons, estados e historial coherentes con los plazos (SLA),
+calificaciones, duplicados, rechazos y puntos críticos.
+
+```
+node demo.js fotos <carpeta>         # sube las fotos elegidas (fotos.json) a S3
+node demo.js generar --cantidad 350  # crea los reportes (--seco para solo ver el resumen)
+node demo.js borrar                  # elimina solo lo creado por el script
+```
+
+Todo lo generado se reconoce por: teléfonos 5690000xxxx, tokens "demo-..." y personal
+con correo @personal.munivox.demo. Son datos simulados, no resultados reales del piloto.
+Créditos de las fotos en `datos-demo/CREDITOS_FOTOS.md`.

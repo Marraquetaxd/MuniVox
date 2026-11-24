@@ -681,7 +681,12 @@ exports.handler = async (event) => {
           ];
         }
       }
-      else if (miRol === 'OPERADOR') visibilidad.departamentoId = miDepto ?? -1;
+      else if (miRol === 'OPERADOR') {
+        // La jefatura solo ve lo que la central C4 ya derivó: un PENDIENTE trae el departamento
+        // que sugirió la IA, pero todavía no es un caso del departamento
+        visibilidad.departamentoId = miDepto ?? -1;
+        visibilidad.estado = { notIn: ['BOCETO', 'PENDIENTE'] };
+      }
 
       if (partes[1] === 'cercanos') {
         const lat = Number(query.lat);
@@ -714,6 +719,7 @@ exports.handler = async (event) => {
         if (!reporte || reporte.estado === 'BOCETO') return responder(404, { error: 'Reporte no encontrado' });
         if (miRol === 'TERRENO' && reporte.operadorAsignadoId !== operador.id) return responder(403, { error: 'Este ticket no está asignado a ti' });
         if (miRol === 'OPERADOR' && reporte.departamentoId !== miDepto) return responder(403, { error: 'Este ticket pertenece a otro departamento' });
+        if (miRol === 'OPERADOR' && reporte.estado === 'PENDIENTE') return responder(403, { error: 'La central C4 aún no deriva este reporte' });
         const reportesCiudadano = await prisma.reporte.count({ where: { ciudadanoId: reporte.ciudadanoId, estado: { not: 'BOCETO' } } });
         return responder(200, { ...protegerReporte(reporte, esAdmin), reportesCiudadano });
       }
@@ -727,7 +733,10 @@ exports.handler = async (event) => {
           where.departamentoId = Number(query.departamentoId);
         }
       }
-      if (query.estado && ESTADOS_VALIDOS.includes(query.estado)) where.estado = query.estado;
+      if (query.estado && ESTADOS_VALIDOS.includes(query.estado)) {
+        if (miRol === 'OPERADOR' && ['BOCETO', 'PENDIENTE'].includes(query.estado)) return responder(200, []);
+        where.estado = query.estado;
+      }
       if (query.desde) {
         const desde = new Date(query.desde);
         if (!isNaN(desde.getTime())) where.createdAt = { gte: desde };
@@ -753,6 +762,7 @@ exports.handler = async (event) => {
       // Permisos base por rol
       if (miRol === 'TERRENO' && actual.operadorAsignadoId !== operador.id) return responder(403, { error: 'Este ticket no está asignado a ti' });
       if (miRol === 'OPERADOR' && actual.departamentoId !== miDepto) return responder(403, { error: 'Este ticket pertenece a otro departamento' });
+      if (miRol === 'OPERADOR' && actual.estado === 'PENDIENTE') return responder(403, { error: 'La central C4 aún no deriva este reporte' });
 
       // ---- "Voy en camino" (funcionario en terreno) ----
       if (body.enCamino === true) {
@@ -857,7 +867,7 @@ exports.handler = async (event) => {
 
       const comentarioHistorial = (original ? `Duplicado de ${original.codigoTicket}` : '') || comentario || (
         esNotaInterna ? 'Nota interna' :
-        derivaAOtroDepto ? 'Derivado por la central C4' :
+        (derivaAOtroDepto || (depDestino !== undefined && actual.estado === 'PENDIENTE')) ? 'Derivado por la central C4' :
         body.operadorAsignadoId ? 'Asignado a funcionario en terreno' :
         prioridadFinal !== undefined ? `Prioridad ajustada a ${prioridadFinal || 'la sugerida por IA'}` :
         categoriaId !== undefined ? `Categoría corregida a ${body.categoriaNombre}` :

@@ -12,6 +12,7 @@
     "rutas": "node simulador.js rutas"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1175.0",
     "dotenv": "^16.4.5",
     "ioredis": "^5.4.1",
     "pg": "^8.13.1"
